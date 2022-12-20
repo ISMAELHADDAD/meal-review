@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <script src="path/to/dayjs/dayjs.min.js"></script>
+    <script src="/script.js" defer></script>
+    <style>
+      .mealImage {
+        width: 200px;
+        object-fit: cover;
+        height: 200px;
+        padding: 2px;
+      }
+      .hourLabel {
+        position: absolute;
+        bottom: -5rem;
+        right: 1rem;
+        background-color: white;
+        padding: 0.025rem 0.25rem;
+        border-radius: 10px;
+        color: black;
+      }
+      @media only screen and (max-width: 767px) {
+        .mealImage {
+          width: 50%;
+          object-fit: cover;
+          height: 200px;
+          padding: 2px;
+        }
+      }
+      @media print {
+        @page {
+          size: a4 landscape;
+          margin: 0mm;
+        }
+        #mainPage {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="mainPage" class="container">
+      <h1>Meal week review 👏👏</h1>
+      <p>How does this work:</p>
+      <ul>
+        <li>You upload pictures of the meals for the week.</li>
+        <li>The page generates an overview of your meals.</li>
+        <li>You should print it to PDF!</li>
+      </ul>
+      <input
+        type="file"
+        multiple
+        id="images"
+        name="images"
+        accept="image/png, image/jpeg"
+      />
+      <button id="generateButton" class="contrast">Generate</button>
+    </main>
+    <main id="sumaryPage" class="container" style="display: none">
+      <h1 id="weekTitle">Week</h1>
+      <div id="imagePreviewContainer"></div>
+    </main>
+  </body>
+</html>
